@@ -1,3 +1,12 @@
+:root {
+    --primary-color: #2d3436;
+    --secondary-color: #0984e3;
+    --bg-color: #f5f6fa;
+    --text-color: #2d3436;
+    --card-bg: #ffffff;
+    --transition: all 0.3s ease;
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -5,76 +14,130 @@
 }
 
 body {
-    font-family: Arial, sans-serif;
-    line-height: 1.6;
-    background-color: #f4f4f4;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.8;
+    background-color: var(--bg-color);
+    color: var(--text-color);
 }
 
 header {
-    background-color: #333;
+    background-color: var(--primary-color);
     color: white;
+    padding: 3rem 0;
     text-align: center;
-    padding: 2rem;
+}
+
+.header-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+header h1 {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.subtitle {
+    color: #74b9ff;
+    font-size: 1.2rem;
+    margin-bottom: 1.5rem;
 }
 
 nav ul {
     display: flex;
     justify-content: center;
+    gap: 2rem;
     list-style: none;
-    margin-top: 1rem;
-}
-
-nav ul li {
-    margin: 0 1rem;
 }
 
 nav ul li a {
     color: white;
     text-decoration: none;
+    font-size: 1.1rem;
+    transition: var(--transition);
+}
+
+nav ul li a:hover {
+    color: var(--secondary-color);
 }
 
 main {
-    max-width: 800px;
-    margin: 2rem auto;
-    padding: 0 1rem;
+    max-width: 1200px;
+    margin: 3rem auto;
+    padding: 0 2rem;
 }
 
-.profile {
-    text-align: center;
-    margin-bottom: 2rem;
+.profile-grid {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 2rem;
+    margin-bottom: 3rem;
 }
 
 .profile-pic {
-    width: 200px;
-    height: 200px;
-    border-radius: 50%;
-    margin-bottom: 1rem;
+    width: 100%;
+    max-width: 300px;
+    border-radius: 15px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    transition: var(--transition);
+}
+
+.profile-pic:hover {
+    transform: translateY(-5px);
 }
 
 .bio {
-    background-color: white;
+    background-color: var(--card-bg);
     padding: 2rem;
-    border-radius: 8px;
-    margin-bottom: 2rem;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
 }
 
-.hobbies {
-    background-color: white;
-    padding: 2rem;
-    border-radius: 8px;
+.bio h2 {
+    color: var(--primary-color);
+    margin-bottom: 1rem;
 }
 
-.hobbies ul {
-    list-style-position: inside;
-    margin-top: 1rem;
+.skills-grid, .hobbies-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+}
+
+.skill-card, .hobby-card {
+    background-color: var(--card-bg);
+    padding: 2rem;
+    border-radius: 15px;
+    text-align: center;
+    transition: var(--transition);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+}
+
+.skill-card:hover, .hobby-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+}
+
+.skill-card i, .hobby-card i {
+    font-size: 2rem;
+    color: var(--secondary-color);
+    margin-bottom: 1rem;
+}
+
+section h2 {
+    color: var(--primary-color);
+    margin-bottom: 1.5rem;
+    text-align: center;
 }
 
 footer {
-    background-color: #333;
+    background-color: var(--primary-color);
     color: white;
     text-align: center;
-    padding: 1rem;
-    margin-top: 2rem;
+    padding: 2rem;
+    margin-top: 4rem;
 }
 
 .social-links {
@@ -83,22 +146,30 @@ footer {
 
 .social-links a {
     color: white;
-    text-decoration: none;
+    font-size: 1.5rem;
     margin: 0 1rem;
+    transition: var(--transition);
 }
 
-@media (max-width: 600px) {
+.social-links a:hover {
+    color: var(--secondary-color);
+}
+
+@media (max-width: 768px) {
+    .profile-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .profile-image {
+        text-align: center;
+    }
+
     nav ul {
         flex-direction: column;
-        align-items: center;
+        gap: 1rem;
     }
 
-    nav ul li {
-        margin: 0.5rem 0;
-    }
-
-    .profile-pic {
-        width: 150px;
-        height: 150px;
+    .skills-grid, .hobbies-grid {
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
     }
 }
