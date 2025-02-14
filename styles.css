@@ -1,10 +1,9 @@
 :root {
-    --primary-color: #2d3436;
-    --secondary-color: #0984e3;
-    --bg-color: #f5f6fa;
-    --text-color: #2d3436;
-    --card-bg: #ffffff;
-    --transition: all 0.3s ease;
+    --primary-color: #2e1065;    /* Deep purple */
+    --secondary-color: #5b21b6;   /* Medium purple */
+    --accent-color: #818cf8;      /* Light indigo */
+    --gradient-start: #1e1b4b;    /* Dark indigo */
+    --gradient-end: #3730a3;      /* Rich indigo */
 }
 
 * {
@@ -21,45 +20,113 @@ body {
 }
 
 header {
-    background-color: var(--primary-color);
+    background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
     color: white;
-    padding: 3rem 0;
-    text-align: center;
+    padding: 4rem 0 2rem 0;
+    position: relative;
+    overflow: hidden;
 }
 
 .header-content {
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 2rem;
+    position: relative;
+    z-index: 2;
+}
+
+.header-main {
+    text-align: left;
+    margin-bottom: 2rem;
+}
+
+.name-title {
+    position: relative;
+    display: inline-block;
 }
 
 header h1 {
-    font-size: 2.5rem;
+    font-size: 3.5rem;
+    font-weight: 700;
     margin-bottom: 0.5rem;
+    letter-spacing: -1px;
+    background: linear-gradient(90deg, #fff, var(--accent-color));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.title-bar {
+    width: 80px;
+    height: 4px;
+    background: var(--accent-color);
+    margin: 1rem 0;
 }
 
 .subtitle {
-    color: #74b9ff;
-    font-size: 1.2rem;
-    margin-bottom: 1.5rem;
+    font-size: 1.4rem;
+    color: #e0e7ff;
+    font-weight: 400;
+    letter-spacing: 1px;
+}
+
+nav {
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: 1.5rem;
 }
 
 nav ul {
     display: flex;
-    justify-content: center;
-    gap: 2rem;
+    justify-content: flex-start;
+    gap: 3rem;
     list-style: none;
 }
 
 nav ul li a {
-    color: white;
+    color: #e0e7ff;
     text-decoration: none;
     font-size: 1.1rem;
+    font-weight: 500;
     transition: var(--transition);
+    position: relative;
+}
+
+nav ul li a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -5px;
+    left: 0;
+    background-color: var(--accent-color);
+    transition: width 0.3s ease;
+}
+
+nav ul li a:hover::after {
+    width: 100%;
 }
 
 nav ul li a:hover {
-    color: var(--secondary-color);
+    color: white;
+}
+
+@media (max-width: 768px) {
+    header {
+        padding: 2rem 0;
+    }
+
+    header h1 {
+        font-size: 2.5rem;
+    }
+
+    .subtitle {
+        font-size: 1.1rem;
+    }
+
+    nav ul {
+        flex-direction: row;
+        justify-content: center;
+        gap: 1.5rem;
+    }
 }
 
 main {
