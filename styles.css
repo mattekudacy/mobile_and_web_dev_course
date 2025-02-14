@@ -1,9 +1,9 @@
 :root {
-    --primary-color: #2e1065;    /* Deep purple */
-    --secondary-color: #5b21b6;   /* Medium purple */
-    --accent-color: #818cf8;      /* Light indigo */
-    --gradient-start: #1e1b4b;    /* Dark indigo */
-    --gradient-end: #3730a3;      /* Rich indigo */
+    --primary-color: #2e1065;
+    --secondary-color: #5b21b6;
+    --accent-color: #818cf8;
+    --gradient-start: #1e1b4b;
+    --gradient-end: #3730a3;
 }
 
 * {
